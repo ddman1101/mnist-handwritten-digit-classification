@@ -4,24 +4,11 @@ Created on Tue Nov  6 01:44:02 2018
 
 @author: HP
 """
-
-#from PIL import Image
-#import matplotlib.pyplot as plt
-#import numpy as np
-#im = Image.open( "C:\\Users\\HP\\Desktop\\碩士班\\類神經網路與深度學習\\training\\9\\*.png" )
-#print(im)
-#show image information
-#print (im.format, im.size, im.mode)
-#plt.imshow(im)
-#matrix = np.array(im)
-#print(matrix)
 from PIL import Image
 import matplotlib.pyplot as plt
 import numpy as np
 import random
-import math
 import skimage.io as io
-import winsound
 from skimage import data_dir
 
 str0='C:/Users/HP/Desktop/碩士班/類神經網路與深度學習/training/0/*.png'
@@ -165,11 +152,6 @@ for l in range(40000):
 
 for u in range(40000):
     matrix[u] = allmatrix[u,10:40000]
-#for k in range(number_of_hidden_layers):
-#    weight[k] = np.matrix(np.random.uniform(-1,1,(hidden_layers_nod,hidden_layers_nod)))
-    
-#def forward_input(k):
-#    hidden_layer_output[k] = np.matrix( np.array(weight_list)[0] * matrix_0[d])
 
 def f(x):
     return 1 / (1 + np.exp(-x))
@@ -194,25 +176,6 @@ for c in range(iteration):
             weight_input = weight_input + np.transpose(delta_weight_hidden_layer)
             weight_output = weight_output + np.transpose(delta_weight_output_layer)            
 
-#back propogation
-       
-
-#class NN():
-#    def __init__(self,layers,learning_rate):
-#        self.layers = layers 
-#        self.learning_rate = learning_rate
-       
-#    def activation_function(self, x):
-#        return 1 / (1 + math.exp(-x))  
-
-#hidden_layers1 = 5   
-#weight_num = 784*hidden_layers1
-#weight1 = np.matrix(np.random.rand(28,hidden_layers1))
-#weight2 = np.matrix(np.random.rand(5,10))
-#print(weight1)
-#print(weight2)
-#len(weight1)
-#test1 = matrix0 * weight1
         
 #測試
 def cost_function(x):
@@ -348,7 +311,8 @@ for p in range(10000):
     answers = temp_list.index([np.asscalar(min(temp))])
     answer[p] = answers
     print(answers)
-
+    
+#生成檔案
 answer1 = np.transpose(np.array(answer,dtype = int))
 f = open('C:\\Users\\HP\\Desktop\\碩士班\\類神經網路與深度學習\\A.txt', 'w', encoding = 'UTF-8') 
 for y  in range(10000):
